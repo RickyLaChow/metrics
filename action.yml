@@ -271,7 +271,7 @@ inputs:
 
   plugin_languages:
     description: Enable languages plugin
-    default: <default-value>
+    default: true
 
   plugin_languages_ignored:
     description: Ignored languages
