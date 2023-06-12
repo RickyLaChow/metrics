@@ -22,6 +22,8 @@ on:
         required: true
       SPLATOON_STATINK_TOKEN:
         required: true
+      SIXTEEN_PERSONALITIES_URL:
+        required: true
       SPOTIFY_TOKENS:
         required: true
       STOCK_TOKEN:
@@ -232,14 +234,14 @@ jobs:
           user: lowlighter
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
-      - name: ✨ Stargazers - Using chartist charts
+      - name: ✨ Stargazers - Using graph charts
         uses: lowlighter/metrics@master
         with:
-          filename: metrics.plugin.stargazers.chartist.svg
+          filename: metrics.plugin.stargazers.graph.svg
           token: ${{ secrets.METRICS_TOKEN }}
           base: ""
           plugin_stargazers: yes
-          plugin_stargazers_charts_type: chartist
+          plugin_stargazers_charts_type: graph
           output_action: none
           delay: 120
           user: lowlighter
@@ -283,6 +285,10 @@ jobs:
           plugin_lines_sections: repositories, history
           plugin_lines_repositories_limit: 2
           plugin_lines_history_limit: 1
+          repositories_skipped: |
+            @use.patterns
+            */*
+            +lowlighter/metrics
           output_action: none
           delay: 120
           user: lowlighter
@@ -1117,6 +1123,53 @@ jobs:
           base: ""
           plugin_leetcode: yes
           plugin_leetcode_sections: solved, skills, recent
+          output_action: none
+          delay: 120
+          user: lowlighter
+          plugins_errors_fatal: yes
+        if: ${{ success() || failure() }}
+      - name: 🕹️ Steam - Recently played games
+        uses: lowlighter/metrics@master
+        with:
+          filename: metrics.plugin.steam.svg
+          token: NOT_NEEDED
+          base: ""
+          plugin_steam_token: MOCKED_TOKEN
+          plugin_steam: yes
+          plugin_steam_user: "0"
+          plugin_steam_sections: recently-played
+          plugin_steam_achievements_limit: 0
+          use_mocked_data: yes
+          output_action: none
+          delay: 120
+          user: lowlighter
+          plugins_errors_fatal: yes
+        if: ${{ success() || failure() }}
+      - name: 🕹️ Steam - Profile and detailed game history
+        uses: lowlighter/metrics@master
+        with:
+          filename: metrics.plugin.steam.full.svg
+          token: NOT_NEEDED
+          base: ""
+          plugin_steam_token: MOCKED_TOKEN
+          plugin_steam: yes
+          plugin_steam_user: "0"
+          use_mocked_data: yes
+          output_action: none
+          delay: 120
+          user: lowlighter
+          plugins_errors_fatal: yes
+        if: ${{ success() || failure() }}
+      - name: 🧠 16personalities - MBTI Personality profile
+        uses: lowlighter/metrics@master
+        with:
+          filename: metrics.plugin.16personalities.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          base: ""
+          plugin_16personalities: yes
+          plugin_16personalities_url: ${{ secrets.SIXTEEN_PERSONALITIES_URL }}
+          plugin_16personalities_sections: personality, traits
+          plugin_16personalities_scores: no
           output_action: none
           delay: 120
           user: lowlighter

@@ -348,6 +348,10 @@ inputs:
     description: Enable stargazers plugin
     default: <default-value>
 
+  plugin_stargazers_days:
+    description: Time range
+    default: <default-value>
+
   plugin_stargazers_charts:
     description: Charts
     default: <default-value>
@@ -1226,8 +1230,69 @@ inputs:
     description: Display limit (skills)
     default: <default-value>
 
+  plugin_leetcode_ignored_skills:
+    description: Ignored skills
+    default: <default-value>
+
   plugin_leetcode_limit_recent:
     description: Display limit (recent)
+    default: <default-value>
+
+  # ====================================================================================
+  # 🕹️ Steam
+
+  plugin_steam:
+    description: Enable steam plugin
+    default: <default-value>
+
+  plugin_steam_token:
+    description: Steam token
+    default: <default-value>
+
+  plugin_steam_sections:
+    description: Displayed sections
+    default: <default-value>
+
+  plugin_steam_user:
+    description: Steam user id
+
+  plugin_steam_games_ignored:
+    description: Ignored games
+    default: <default-value>
+
+  plugin_steam_games_limit:
+    description: Display limit (Most played games)
+    default: <default-value>
+
+  plugin_steam_recent_games_limit:
+    description: Display limit (Recently played games)
+    default: <default-value>
+
+  plugin_steam_achievements_limit:
+    description: Display limit (Games achievements)
+    default: <default-value>
+
+  plugin_steam_playtime_threshold:
+    description: Display threshold (Game playtime in hours)
+    default: <default-value>
+
+  # ====================================================================================
+  # 🧠 16personalities
+
+  plugin_16personalities:
+    description: Enable 16personalities plugin
+    default: <default-value>
+
+  plugin_16personalities_url:
+    description: Profile URL
+    default: <default-value>
+
+  plugin_16personalities_sections:
+    description: Displayed sections
+    default: <default-value>
+
+  plugin_16personalities_scores:
+    description: Display traits scores
     default: <default-value>
 
   # ====================================================================================
