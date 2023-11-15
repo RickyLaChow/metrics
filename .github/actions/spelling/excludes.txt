@@ -57,3 +57,4 @@ ignore$
 ^\Qtests/mocks/api/github/rest/emojis/get.mjs\E$
 ^\Qtests/mocks/api/axios/get/lichess.mjs\E$
 ^\Qtests/mocks/api/axios/get/steam.mjs\E$
+
